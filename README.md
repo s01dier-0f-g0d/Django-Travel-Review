@@ -57,27 +57,25 @@ Defined in `models.py`
 | **Notifications** | Django `messages` Framework                |
 
 ## ⚡ Setup Instructions
-## 1️⃣ Clone the Repository
 
-git clone https://github.com/<your-username>/travel-review.git
-cd travel-review
+## 1️⃣ Clone the Repository
+> git clone https://github.com/s01dier-0f-g0d/Django-Travel-Review.git
+> cd Django-Travel-Review
 
 ## 2️⃣ Create and Activate a Virtual Environment
-python -m venv venv
-source venv/bin/activate        # macOS/Linux
-venv\Scripts\activate           # Windows
+> python -m venv venv
+> source venv/bin/activate        # macOS/Linux
+> venv\Scripts\activate           # Windows
 
 ## 3️⃣ Install Dependencies
-pip install django
+> pip install django
 
 ## 4️⃣ Apply Migrations
-python manage.py makemigrations
-python manage.py migrate
+> python manage.py makemigrations
+> python manage.py migrate
 
 ## 5️⃣ Create Superuser (Admin Access)
-python manage.py createsuperuser
+> python manage.py createsuperuser
 
 ## 6️⃣ Run the Development Server
-python manage.py runserver 7001
-
-## But before, make sure you have made necessary changes in your settings.py and venv/urls.py
+> python manage.py runserver 7001
