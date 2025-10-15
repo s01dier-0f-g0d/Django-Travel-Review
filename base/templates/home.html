@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Share Your Travel Experience</h1>
+
+    <form method="POST" class="search-form">
+        {% csrf_token %}
+        <input type="text" placeholder="Search destinations..." value="{{ search }}" name="q">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="btn-group">
+        <a href="{% url 'create' %}" class="btn btn-primary">Share Your Experience</a>
+        <a href="{% url 'display' %}" class="btn btn-primary">View All</a>
+    </div>
+</div>
+<div>
+    <img src="https://windows10spotlight.com/wp-content/uploads/2022/03/613b1d23e63cd32a601d9a510583168d.jpg" alt="Travel">
+</div>
+{% endblock %}

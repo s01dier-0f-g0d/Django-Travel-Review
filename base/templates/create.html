@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>Share Your Travel Experience</h1>
+
+    <form method="POST" enctype="multipart/form-data" class="form-card">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="form-buttons">
+            <button type="submit" class="btn btn-primary">🌍 Share</button>
+            <a href="{% url 'home' %}" class="btn btn-info">❌ Cancel</a>
+            <a href="{% url 'display' %}" class="btn btn-info">📖 View All</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

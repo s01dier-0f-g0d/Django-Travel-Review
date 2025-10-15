@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>🌍 Explore Travel Experiences</h1>
+
+    <!-- Search Bar -->
+    <form method="GET" class="search-form">
+        <input type="text" placeholder="Search by destination or country..." value="{{ search }}" name="q">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Top Action Button -->
+    <div class="btn-group">
+        <a href="{% url 'create' %}" class="btn btn-primary">+ Share Your Experience</a>
+    </div>
+
+    <!-- Destination Grid -->
+    {% if data %}
+    <div class="grid-container">
+        {% for i in data %}
+        <div class="destination-card">
+            <div class="card-header">
+                <h2>{{ i.name }}</h2>
+                <span class="rating">⭐ {{ i.rating }}/10</span>
+            </div>
+            <div class="card-body">
+                <p><strong>Country:</strong> {{ i.country }}</p>
+                <p><strong>Average Cost:</strong> ₹{{ i.average_cost }}</p>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'specific' i.id %}" class="btn btn-info">View Details</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p class="empty-msg">No destinations found. Try a different search or share your experience!</p>
+    {% endif %}
+</div>
+{% endblock %}
