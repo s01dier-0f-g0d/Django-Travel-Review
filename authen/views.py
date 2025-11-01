@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 def signup(request):
     if request.method == 'POST':
-        User.objects.create(
+        User.objects.create_user(
             first_name = request.POST['first_name'],
             last_name = request.POST['last_name'],
             email = request.POST['email'],
@@ -69,4 +69,5 @@ def updatePass(request):
 @login_required(login_url='signin')
 def signout(request):
     logout(request)
+
     return redirect('signin')
