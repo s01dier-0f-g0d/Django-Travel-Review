@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>🌍 Explore Travel Experiences</h1>
+
+    <!-- Search Bar -->
+    <form method="GET" class="search-form">
+        {% csrf_token %}
+        <input type="text" placeholder="Search by destination or country..." value="{{ search }}" name="q">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Top Action Button -->
+    <div class="btn-group">
+        <a href="{% url 'create_country' %}" class="btn btn-primary">+ Add Country</a>
+    </div>
+
+    <!-- Destination Grid -->
+    {% if data %}
+    <div class="grid-container">
+        {% for i in data %}
+        <div class="destination-card">
+            <div class="card-header">
+                <h2>{{ i.name }}</h2>
+            </div>
+            <div class="card-body">
+            <p><strong>Description: </strong>  {{ data.descr }}</p> <br>
+            <p><strong> Image: </strong></p><br> 
+            <img src="{{ i.image.url }}" height="150" width="150"> <br>
+            {% endif %}
+            <br>
+            <p><strong>Created at: </strong> {{ i.created_at }} </p><br>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'delete_country' %}" class="btn btn-info">Delete</a>
+                <a href="{% url 'display' %}" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p class="empty-msg">No destinations found. Try a different search or share your experience!</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Login</h1>
+<form method="post" class="form-card">
+    {% csrf_token %}
+    Username: <input type="text" name="username"><br><br>
+    Password: <input type="password" name="password"><br><br>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form><br>
+<button onclick="history.back()" class="btn btn-info">Cancel</button>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>🌍 Explore Travel Experiences</h1>
+
+    <!-- Search Bar -->
+    <form method="GET" class="search-form">
+        {% csrf_token %}
+        <input type="text" placeholder="Search by destination or country..." value="{{ search }}" name="q">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Top Action Button -->
+    <div class="btn-group">
+    </div>
+
+    <!-- Destination Grid -->
+    {% if data %}
+    <div class="grid-container">
+        {% for i in data %}
+        <div class="destination-card">
+            <div class="card-header">
+                <h2>{{ i.name }}</h2>
+                <span class="rating">⭐ {{ i.rating }}/10</span>
+            </div>
+            <div class="card-body">
+                <p><strong>Country:</strong> {{ i.country }}</p>
+                <p><strong>Average Cost:</strong> ₹{{ i.average_cost }}</p>
+                <p><strong> Image: </strong></p><br> 
+                <img src="{{ i.image.url }}" height="150" width="150"> <br>
+            <br>
+             <p><strong> Video: </strong></p>
+            <br>
+            {% if i.video %}
+            <video width="250" height="150" controls>
+                <source src="{{ i.video.url }}" type="video/mp4">
+            </video>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'restore' i.id %}" class="btn btn-info">Restore</a>
+                <a href="{% url 'display' %}" class="btn btn-danger">Back</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p class="empty-msg">No Countries found.</p>
+    {% endif %}
+</div>
+{% endblock %}

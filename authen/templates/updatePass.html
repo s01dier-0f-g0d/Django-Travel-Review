@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Sign Up</h1>
+<form method="post" class="form-card">
+    {% csrf_token %}
+    Old Password: <input type="password" name="old_pass"><br><br>
+    New Password: <input type="password" name="new_pass"><br><br>
+    Confirm Password: <input type="password" name="confirm_pass"><br><br>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form><br>
+<button onclick="history.back()" class="btn btn-info">Cancel</button>
+{% endblock %}

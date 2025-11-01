@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{% block content %}
+<form class="form-data">
+    {% csrf_token %}
+<h1>Profile</h1>
+<h3>{{ customer.first_name|upper }} {{ customer.last_name|upper }} </h3>
+<h3> Email: {{ customer.email }}</h3>
+<h3> Username: {{ customer.username }}</h3>
+<a href="{% url 'updateProfile' %}"><button class="bt btn-primary">Update Profile</button></a>
+<a href="{% url 'updatePass' %}"><button class="btn btn-primary">Update Password</button></a>
+<a href="{% url 'home' %}"><button class="btn btn-info">Back</button></a>
+</form>
+{% endblock %}

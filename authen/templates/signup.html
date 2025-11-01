@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Sign Up</h1>
+<form method="post" class="form-card">
+    {% csrf_token %}
+    First Name: <input type="text" name="first_name"><br><br>
+    Name: <input type="text" name="last_name"><br><br>
+    Email: <input type="email" name="email"><br><br>
+    Username: <input type="text" name="username"><br><br>
+    Password: <input type="password" name="password"><br><br>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+</form><br>
+<button onclick="history.back()" class="btn btn-info">Cancel</button>
+{% endblock %}
