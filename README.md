@@ -59,7 +59,7 @@ Defined in `models.py`
 ## ⚡ Setup Instructions
 
 ## 1️⃣ Clone the Repository
-> git clone https://github.com/s01dier-0f-g0d/Django-Travel-Review.git
+> git clone https://github.com/darshan-m0/Django-Travel-Review.git
 > cd Django-Travel-Review
 
 ## 2️⃣ Create and Activate a Virtual Environment
